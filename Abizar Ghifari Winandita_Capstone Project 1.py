@@ -1,4 +1,4 @@
-# Capstone Project 1 - Abizar Ghifari Winandita - JCDS 2502
+# Capstone Project 1 - Abizar Ghifari Winandita - Aplikasi Pengelolaan Data Nilai Siswa
 
 from tabulate import tabulate
 
