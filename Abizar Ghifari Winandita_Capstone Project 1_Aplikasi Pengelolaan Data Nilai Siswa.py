@@ -1,4 +1,4 @@
-# Capstone Project 1 - Abizar Ghifari Winandita - Aplikasi Pengelolaan Data Nilai Siswa
+# Capstone Project 1 - Abizar Ghifari Winandita - Aplikasi Pengelolaan Data Nilai Siswa (Revised Edition)
 
 from tabulate import tabulate
 
@@ -22,7 +22,7 @@ database_siswa_ipa = {"id_student" : ["000", "001", "002", "003", "004"],
                 }
 # Database Dummy
 database_siswa_ips = {"id_student" : ["000", "001", "002", "003", "004"], 
-                "nama" : ["Muhammad Faiz", "Nandipi Riyangkara", "Alvira Rahmadania","Umar Abdulhafizh", "Saskia Prameswari"], 
+                "nama" : ["Muhammad Faiz", "Muhammad Zukfikar", "Alvira Rahmadania","Umar Abdulhafizh", "Naufal Winandita"], 
                 "gender" : ["L","L","P","L","P"], 
                 "jurusan" : ["IPS","IPS","IPS","IPS","IPS"],
                 "nilai_matematika" : [90, 80, 85, 90, 92],
@@ -59,7 +59,7 @@ def menu_1():
             print()
 
 # Tampilan menu 2 --> Menambah database siswa jurusan IPA atau IPS
-def menu_2():
+def menu_2(): # Coba improvisasi pakai function berpola
     print()
     while True: # Infinite loop selama benar, maka program akan terus berjalan
         try: # Try & Except untuk menangani ketika program terjadi error, Menempatkan Try pada kode yang kemungkinan akan menimbulkan error
@@ -118,7 +118,7 @@ def menu_2():
                     else:
                         print(f"Input nilai Bahasa Inggris gagal. Harap masukkan angka 0 - 100.")
             
-                # Memasukkan data siswa baru ke database_siswa_ipa
+                # Memasukkan data siswa baru ke database_siswa_ipa, coba append berpola dibuat function sekalian sama sub looping
                 database_siswa_ipa["id_student"].append(id_student_baru)
                 database_siswa_ipa["nama"].append(nama_baru)
                 database_siswa_ipa["gender"].append(gender_baru)
@@ -303,6 +303,7 @@ def menu_4():
                             break
                         else:
                             print(f"ID siswa '{id_student_update}' tidak sesuai format atau belum terdaftar di 'Database Jurusan IPA'. Silahkan coba lagi.")
+                            break
 
                     find_index = database_siswa_ipa["id_student"].index(id_student_update)
 
@@ -421,6 +422,7 @@ def menu_4():
                             break
                         else:
                             print(f"ID siswa '{id_student_update}' tidak sesuai format atau belum terdaftar di 'Database Jurusan IPS'. Silahkan coba lagi.")
+                            break
 
                     find_index = database_siswa_ips["id_student"].index(id_student_update)
 
@@ -541,7 +543,7 @@ def menu_5():
             menampilkan_rapor_kelas = int(input("Pilih opsi menu 1-3: "))
             if menampilkan_rapor_kelas == 1: # Jika user pilih IPA
             
-                keys_terpilih_ipa = ["nilai_matematika", "nilai_fisika", "nilai_kimia", "nilai_biologi", "nilai_bindo", "nilai_bing"] # Keys terpilih untuk menghitung rata2
+                keys_terpilih_ipa = list(database_siswa_ipa.keys())[4:]# Keys terpilih untuk menghitung rata2
 
                 values_terpilih_ipa = []
 
@@ -580,7 +582,7 @@ def menu_5():
 
             elif menampilkan_rapor_kelas == 2: # Jika user pilih IPS
             
-                keys_terpilih_ips = ["nilai_matematika", "nilai_ekonomi", "nilai_geografi", "nilai_sosiologi", "nilai_bindo", "nilai_bing"]
+                keys_terpilih_ips = list(database_siswa_ips.keys())[4:]
 
                 values_terpilih_ips = []
 
